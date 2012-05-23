@@ -15,7 +15,7 @@ def main():
      print '\nexiting...\n'
      sys.exit(0)
  
- core_valence_divide = 0 # <- all valence 
+ core_valence_divide = -10 # <- all valence 
  
  command_line_counter = commands.getoutput('wc -l ' + input_filename).split()
  
@@ -88,10 +88,10 @@ def main():
  p_project = numpy.transpose(pdos)[2]
  d_project = numpy.transpose(pdos)[3]
  
- #energies_core  =  energies[0:core_valence_divide]
- #s_project_core = s_project[0:core_valence_divide]
- #p_project_core = p_project[0:core_valence_divide]
- #d_project_core = d_project[0:core_valence_divide]
+ energies_core  =  energies[0:core_valence_divide]
+ s_project_core = s_project[0:core_valence_divide]
+ p_project_core = p_project[0:core_valence_divide]
+ d_project_core = d_project[0:core_valence_divide]
  
  
  energies_valence  =  energies[core_valence_divide:efermi_bin]
@@ -99,19 +99,19 @@ def main():
  p_project_valence = p_project[core_valence_divide:efermi_bin]
  d_project_valence = d_project[core_valence_divide:efermi_bin]
  
- #spd_sum_core    = sum(s_project_core)    + sum(p_project_core)    + sum(d_project_core)
+ spd_sum_core    = sum(s_project_core)    + sum(p_project_core)    + sum(d_project_core)
  spd_sum_valence = sum(s_project_valence) + sum(p_project_valence) + sum(d_project_valence)
  
- #s_fraction_core = sum(s_project_core)/spd_sum_core
- #p_fraction_core = sum(p_project_core)/spd_sum_core
+ s_fraction_core = sum(s_project_core)/spd_sum_core
+ p_fraction_core = sum(p_project_core)/spd_sum_core
  
  s_fraction_valence = sum(s_project_valence)/spd_sum_valence
  p_fraction_valence = sum(p_project_valence)/spd_sum_valence
  d_fraction_valence = sum(d_project_valence)/spd_sum_valence
  
- #print
- #print "%s core", s_fraction_core*100
- #print "%p core", p_fraction_core*100
+ print
+ print "%s core", s_fraction_core*100
+ print "%p core", p_fraction_core*100
  print
  print "%s valence", s_fraction_valence*100
  print "%p valence", p_fraction_valence*100
