@@ -1,4 +1,4 @@
-#!/global/software/centos-5.x86_64/modules/Python/2.7.1/bin/python
+#!/usr/bin/env python
 
 import numpy
 
