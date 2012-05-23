@@ -4,6 +4,8 @@ import sys
 import commands
 import numpy
 
+subtractFermi = True
+
 def main(): 
 
  try:
@@ -41,8 +43,10 @@ def main():
  
  for i in range(enum_total):
      inline_total = inputFile.readline().split()
-     dos[i][0] = float(inline_total[0])  
- #    dos[i][0] = float(inline_total[0]) - efermi_total 
+     if (subtractFermi == True): 
+       dos[i][0] = float(inline_total[0]) - efermi_total 
+     else: 
+       dos[i][0] = float(inline_total[0])  
      dos[i][1], dos[i][2] = float(inline_total[1]), float(inline_total[2])
  
  for row in dos:
@@ -118,6 +122,7 @@ def main():
  print "efermi_total = ", efermi_total
  print "spacing = ", spacing
  print
+ if (subtractFermi == True): print "Note, levels have been shifted so E_Fermi = 0"
  
  for row in pdos:
      for element in row:
