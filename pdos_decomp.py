@@ -26,8 +26,6 @@ outputFile_pdos = open('pdos.dat', 'w')
 inputFile = open(input_filename, 'r')
 
 natom = int(inputFile.readline().split()[0])
-#natom = 11 
-print '!!! natom = ' + str(natom)
 
 for i in range(4):
     inputFile.readline()
@@ -72,8 +70,8 @@ for atoms in range(natom):
     for i in range(enum_project):
         inline_project = inputFile.readline().split()
         pdos[i][1] += float(inline_project[1]) # s
-        pdos[i][2] += float(inline_project[2]) + float(inline_project[3]) + float(inline_project[4]) # py pz px
-        pdos[i][3] += float(inline_project[5]) + float(inline_project[6]) + float(inline_project[7]) + float(inline_project[8]) + float(inline_project[9]) # dxy ...
+        pdos[i][2] += float(inline_project[2]) # p
+        pdos[i][3] += float(inline_project[3]) # d
 
 for i in numpy.arange(1,enum_project):
     pdos[i][4] = pdos[i - 1][4] + pdos[i][1]
