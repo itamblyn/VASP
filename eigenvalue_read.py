@@ -2,7 +2,7 @@
 
 import numpy
 
-def read_eigenvalues():
+def read_eigenvalues(subtractFermi):
 
     inputFile_EIGENVAL = open('EIGENVAL', 'r')
     inputFile_IBZKPT = open('IBZKPT', 'r')
@@ -53,17 +53,23 @@ def read_eigenvalues():
 
         for eigenvalue in eigenvalue_array[i]:
 
-            eigenvalue_list.append(eigenvalue)
+            if (subtractFermi == True): 
+                eigenvalue_list.append(eigenvalue - efermi)
+            else:
+                eigenvalue_list.append(eigenvalue)
 
 
     return eigenvalue_list, wkpt_array, nkpt, neigen_per_kpt
 
 def main():
 
-    eigenvalue_list, wkpt_array, nkpt, neigen_per_kpt = read_eigenvalues() 
+    subtractFermi = True
+
+    eigenvalue_list, wkpt_array, nkpt, neigen_per_kpt = read_eigenvalues(subtractFermi) 
 
     print 'wtk.dat file DOES work with dos_kpt.x read (6 columns per line)'
     print len(eigenvalue_list), ' eigenvalues were read'
+    print 'Subtract Fermi = ', subtractFermi
 
 #    g = Gnuplot.Gnuplot()
 #    g('set data style linespoints') 
