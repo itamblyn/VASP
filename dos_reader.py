@@ -153,7 +153,7 @@ def main():
  print "efermi_total = ", efermi_total
  print "spacing = ", spacing
  print
- if (subtractFermi == True): ]
+ if (subtractFermi == True): 
      print "Note, levels have been shifted so E_Fermi = 0" 
  
  for row in pdos:
