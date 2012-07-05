@@ -11,8 +11,7 @@ nvalence_electrons = 4
 def main():
  
  try:
-#     input_filename = sys.argv[1]
-     input_filename = '/Users/tamblyn2/llnl/sulfur/vasp/pdos/DOSCAR'
+     input_filename = sys.argv[1]
 
  except IndexError:
      print '\nusage: ' + sys.argv[0] + ' input_filename'
