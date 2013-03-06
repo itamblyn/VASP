@@ -4,7 +4,7 @@ import sys
 import commands
 import numpy
 
-print 'Do not alter this file. It is here for reference'
+def main():
 
 try:
     input_filename = sys.argv[1]
@@ -139,3 +139,7 @@ for row in pdos:
     for element in row:
         outputFile_pdos.write(str(element) + ' ')
     outputFile_pdos.write('\n')
+
+ 
+if __name__ == '__main__':
+     main()

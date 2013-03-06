@@ -5,10 +5,11 @@ import commands
 import numpy
 
 print "Warning, I believe this only looks at 1 atom!"
+print "This is for project blackbird, and was used for Li"
 
 subtractFermi = True
-ncore_electrons = 0
-nvalence_electrons = 
+ncore_electrons = 2
+nvalence_electrons = 4
 nelectrons = ncore_electrons + nvalence_electrons
 
 def main(): 
