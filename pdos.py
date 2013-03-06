@@ -26,7 +26,7 @@ outputFile_pdos = open('pdos.dat', 'w')
 inputFile = open(input_filename, 'r')
 
 natom = int(inputFile.readline().split()[0])
-
+print '!!! natom = ' + str(natom)
 #natom = 16
 
 for i in range(4):
