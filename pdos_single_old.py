@@ -6,9 +6,9 @@ import numpy
 
 print "Warning, I believe this only looks at 1 atom!"
 
-subtractFermi = False
-ncore_electrons = 2
-nvalence_electrons = 4
+subtractFermi = True
+ncore_electrons = 0
+nvalence_electrons = 
 nelectrons = ncore_electrons + nvalence_electrons
 
 def main(): 
