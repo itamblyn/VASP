@@ -5,8 +5,8 @@ import commands
 import numpy
  
 subtractFermi = False
-ncore_electrons = 2
-nvalence_electrons = 4
+ncore_electrons = 0
+nvalence_electrons = 18
  
 def main():
  
