@@ -82,7 +82,7 @@ def main():
       inline_project = inputFile.readline()
 
       for i in range(enum_project):
-          inline_project = inputFile.readline().split()
+        inline_project = inputFile.readline().split()
         pdos[i][1] += float(inline_project[1]) # s
         pdos[i][2] += float(inline_project[2]) + float(inline_project[3]) + float(inline_project[4]) # py pz px
         pdos[i][3] += float(inline_project[5]) + float(inline_project[6]) + float(inline_project[7]) + float(inline_project[8]) + float(inline_project[9]) # dxy ...
