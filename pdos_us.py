@@ -4,6 +4,8 @@ import sys
 import commands
 import numpy
 
+print 'Do not alter this file. It is here for reference'
+
 try:
     input_filename = sys.argv[1]
 except IndexError:

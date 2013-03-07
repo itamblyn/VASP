@@ -1,0 +1,21 @@
+SYSTEM = check layer dependance 
+NWRITE = 3   
+
+ISTART = 0   # 0=new, 1=wave, 2=same cutoff&latt (1&2 need WAVECAR file)
+ICHARG = 2    # 0=charge from wave, 1=charge from CHGCAR, 2=atom superpos.
+
+SIGMA = 0.1
+LORBIT = 11
+#LVTOT = .TRUE. # total potential, including Vxc
+LVHAR=.TRUE.  #  hartree potential
+
+PREC = High     
+ENCUT = 435.1 eV
+
+IALGO = 48 
+LREAL = A   
+NELMIN = 6       # this says that you need to take at least 6 steps of SCF 
+BMIX = 2.0       # the amount of mixing of old and new wavefunction (default?)
+MAXMIX = 50      # something to do with mixing (default?)
+
+

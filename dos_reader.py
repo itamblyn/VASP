@@ -3,11 +3,14 @@
 import sys
 import commands
 import numpy
+
+print 'This code is built around the assumption that all atoms are of the same type \
+       try pdos.py for those systems'
  
 subtractFermi = False
 ncore_electrons = 0
 nvalence_electrons = 10
- 
+
 def main():
  
  try:
@@ -19,7 +22,7 @@ def main():
      sys.exit(0)
 
  nelectrons = ncore_electrons + nvalence_electrons
- 
+
  command_line_counter = commands.getoutput('wc -l ' + input_filename).split()
  
  if len(command_line_counter) != 2:
