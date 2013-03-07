@@ -6,7 +6,7 @@ import numpy
  
 subtractFermi = False
 ncore_electrons = 0
-nvalence_electrons = 18
+nvalence_electrons = 10
  
 def main():
  
