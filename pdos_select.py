@@ -4,14 +4,17 @@ import sys
 import commands
 import numpy
 
+natom_skip = 16 # in this case, the atoms of interest are at the top of the file
+natom = 64      # how many atoms (sequentially) after natom_skip you would like to include
+
 def main():
 
   try:
     input_filename = sys.argv[1]
   except IndexError:
     print '\nusage: ' + sys.argv[0] + ' input_filename'
-    print '\nexiting...\n'
-    sys.exit(0)
+    print 'Since no file was provided, I will try DOSCAR in the run dir'
+    input_filename = 'DOSCAR'
 
   core_valence_divide = -1000 # <- all valence 
 
@@ -27,9 +30,11 @@ def main():
 
   inputFile = open(input_filename, 'r')
 
-  natom = int(inputFile.readline().split()[0])
+#  If you wanted to read natom from the file, here it is. For this code though we want to specify
+#  so we will simply discard this line
+  null = inputFile.readline()
+#  natom = int(inputFile.readline().split()[0])
 
-  natom = 6 
   fermi_subtract = True
 
   print '!!! natom = ' + str(natom)
@@ -78,6 +83,15 @@ def main():
 
      pdos[i][0] = dos[i][0]  # fills in the E column of pdos
 
+
+  # skip read the atoms you would like to look at
+  for atoms in range(natom_skip):
+      inline_project = inputFile.readline()
+
+      for i in range(enum_project):
+        inline_project = inputFile.readline().split()
+
+  # read the atoms you care about
   for atoms in range(natom):
       inline_project = inputFile.readline()
 
@@ -85,7 +99,7 @@ def main():
         inline_project = inputFile.readline().split()
         pdos[i][1] += float(inline_project[1]) # s
         pdos[i][2] += float(inline_project[2]) + float(inline_project[3]) + float(inline_project[4]) # py pz px
-        pdos[i][3] += float(inline_project[5]) + float(inline_project[6]) + float(inline_project[7]) + float(inline_project[8]) + float(inline_project[9]) # dxy ...
+        pdos[i][3] += float(inline_project[5]) + float(inline_project[6]) + float(inline_project[7]) + float(inline_project[8]) + float(inline_project[9]) # dxy ... 
 
   for i in numpy.arange(1,enum_project):
       pdos[i][4] = pdos[i - 1][4] + pdos[i][1]

@@ -1,5 +1,0 @@
-2x2x1    
- 0               Automatic generation of k-points
-Monkhorst        M use Monkhorst Pack
-2 2 1           grid
- .0 .0 .0        shift
