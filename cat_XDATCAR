@@ -19,7 +19,7 @@ end
 cat vasprun.*.xml > files/vasprun.xml
 
 cd files
-xdat2xyz.pl
+$HOME/git/others/vtstscripts/xdat2xyz.pl
 cd ..
 
 cat vasprun.*.xml > files/vasprun.xml
