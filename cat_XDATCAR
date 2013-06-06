@@ -7,6 +7,7 @@ mkdir files
 set num=`ls -l POSCAR.10* | awk '{print $9}' | head -1 | sed s/"\."/" "/g | awk '{print $2}'`
 
 cp POSCAR."$num"  files/POSCAR
+cp OUTCAR."$num"  files/OUTCAR
 cp ../POTCAR  files/POTCAR 
 cp CONTCAR."$num" files/CONTCAR
 
