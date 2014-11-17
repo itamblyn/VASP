@@ -4,8 +4,10 @@ import sys
 import commands
 import numpy
 
-natom_skip = 16 # in this case, the atoms of interest are at the top of the file
-natom = 64      # how many atoms (sequentially) after natom_skip you would like to include
+target_index = int(sys.argv[2])
+
+natom_skip = target_index
+natom = 1      # how many atoms (sequentially) after natom_skip you would like to include
 
 def main():
 
