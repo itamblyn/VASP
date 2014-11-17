@@ -8,6 +8,7 @@
 import sys
 import commands
 import numpy
+import numpy as np
 
 target_index = int(sys.argv[2])
 
@@ -150,6 +151,7 @@ def main():
 
   energies  = numpy.transpose(pdos)[0]
 
+
   if spin_polarised == False:
     s_project = numpy.transpose(pdos)[1]
     p_project = numpy.transpose(pdos)[2]
@@ -175,6 +177,10 @@ def main():
     s_fraction_valence = sum(s_project_valence)/spd_sum_valence
     p_fraction_valence = sum(p_project_valence)/spd_sum_valence
     d_fraction_valence = sum(d_project_valence)/spd_sum_valence
+
+    s_position = np.dot(energies_valence, s_project_valence/numpy.sum(s_project_valence))
+    p_position = np.dot(energies_valence, p_project_valence/numpy.sum(p_project_valence))
+    d_position = np.dot(energies_valence, d_project_valence/numpy.sum(d_project_valence))
 
   else:
     s_up_project   = numpy.transpose(pdos)[1]
@@ -212,9 +218,9 @@ def main():
 #print "%s core", s_fraction_core*100
 #print "%p core", p_fraction_core*100
   print
-  print "%s valence", s_fraction_valence*100
-  print "%p valence", p_fraction_valence*100
-  print "%d valence", d_fraction_valence*100
+  print "%s valence", np.around(s_fraction_valence*100,1), np.around(s_position,2), ' eV'
+  print "%p valence", np.around(p_fraction_valence*100,1), np.around(p_position,2), ' eV'
+  print "%d valence", np.around(d_fraction_valence*100,1), np.around(d_position,2), ' eV'
   print
   print "norm = ", str(s_fraction_valence + p_fraction_valence + d_fraction_valence)
   print
